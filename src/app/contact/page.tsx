@@ -25,13 +25,99 @@ const services = [
   "Other",
 ];
 
+/* ──────────── Calendar helpers ──────────── */
+
+function toICSDate(date: Date): string {
+  return date.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+}
+
+function buildGoogleCalendarUrl(form: FormState): string {
+  const start = new Date(`${form.date}T${form.time}`);
+  const end = new Date(start.getTime() + 60 * 60 * 1000); // 1 hour
+  const fmt = (d: Date) => d.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+
+  const details = [
+    `Client: ${form.name}`,
+    form.phone ? `Phone: ${form.phone}` : "",
+    form.email ? `Email: ${form.email}` : "",
+    form.service ? `Service: ${form.service}` : "",
+    form.message ? `Note: ${form.message}` : "",
+  ].filter(Boolean).join("\\n");
+
+  const params = new URLSearchParams({
+    action: "TEMPLATE",
+    text: `Marina Barbershop — ${form.service || "Appointment"} (${form.name})`,
+    dates: `${fmt(start)}/${fmt(end)}`,
+    details,
+    location: "865 Bergen Ave #2, Jersey City, NJ 07306",
+  });
+
+  return `https://calendar.google.com/calendar/render?${params.toString()}`;
+}
+
+function downloadICSFile(form: FormState): void {
+  const start = new Date(`${form.date}T${form.time}`);
+  const end = new Date(start.getTime() + 60 * 60 * 1000);
+
+  const description = [
+    `Client: ${form.name}`,
+    form.phone ? `Phone: ${form.phone}` : "",
+    form.email ? `Email: ${form.email}` : "",
+    form.service ? `Service: ${form.service}` : "",
+    form.message ? `Note: ${form.message}` : "",
+  ].filter(Boolean).join("\\n");
+
+  const ics = [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "PRODID:-//Marina Barbershop//Booking//EN",
+    "BEGIN:VEVENT",
+    `DTSTART:${toICSDate(start)}`,
+    `DTEND:${toICSDate(end)}`,
+    `SUMMARY:Marina Barbershop — ${form.service || "Appointment"} (${form.name})`,
+    `DESCRIPTION:${description}`,
+    "LOCATION:865 Bergen Ave #2\\, Jersey City\\, NJ 07306",
+    `UID:${Date.now()}@marinabarbershop`,
+    "STATUS:CONFIRMED",
+    "BEGIN:VALARM",
+    "TRIGGER:-PT30M",
+    "ACTION:DISPLAY",
+    "DESCRIPTION:Reminder: Barbershop appointment in 30 minutes",
+    "END:VALARM",
+    "END:VEVENT",
+    "END:VCALENDAR",
+  ].join("\r\n");
+
+  const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "marina-barbershop-appointment.ics";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+/* ──────────── Component ──────────── */
+
+interface FormState {
+  name: string;
+  phone: string;
+  email: string;
+  service: string;
+  date: string;
+  time: string;
+  message: string;
+}
+
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<FormState>({
     name: "",
     phone: "",
     email: "",
     service: "",
+    date: "",
+    time: "",
     message: "",
   });
 
@@ -44,14 +130,19 @@ export default function ContactPage() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  // Minimum date = tomorrow
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const minDate = tomorrow.toISOString().split("T")[0];
+
   return (
     <div className="min-h-screen bg-stone-50 pt-20">
       {/* Header */}
       <div className="bg-stone-100 border-b border-stone-200 py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-stone-400 text-xs font-medium tracking-[0.3em] uppercase mb-3">Get In Touch</p>
+          <p className="text-stone-400 text-xs font-medium tracking-[0.3em] uppercase mb-3">Book Online</p>
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-stone-900 tracking-tight mb-4">
-            Contact Us
+            Contact & Booking
           </h1>
           <div className="w-12 h-px bg-stone-300 mx-auto mb-6" />
           <p className="text-stone-500 text-lg max-w-2xl mx-auto">
@@ -64,13 +155,34 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
           {/* Contact Form */}
           <div>
-            <h2 className="font-display text-2xl font-bold text-stone-900 mb-6">Send Us a Message</h2>
+            <h2 className="font-display text-2xl font-bold text-stone-900 mb-6">Book an Appointment</h2>
             {submitted ? (
-              <div className="bg-white border border-stone-200 p-8 text-center">
+              <div className="bg-white border border-stone-200 p-6 sm:p-8 text-center">
                 <div className="text-4xl mb-4">✅</div>
-                <h3 className="font-display text-xl font-semibold text-stone-900 mb-2">Message Received!</h3>
-                <p className="text-stone-500">Thanks for reaching out. We&apos;ll get back to you shortly.</p>
-                <p className="text-stone-400 text-sm mt-4">Or call us directly: <a href="tel:+12017363239" className="text-stone-900 hover:underline font-medium">(201) 736-3239</a></p>
+                <h3 className="font-display text-xl font-semibold text-stone-900 mb-2">Booking Request Received!</h3>
+                <p className="text-stone-500 mb-6">Thanks for reaching out. Add this to your calendar so you don&apos;t forget:</p>
+
+                {/* Calendar buttons */}
+                {form.date && form.time ? (
+                  <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
+                    <a
+                      href={buildGoogleCalendarUrl(form)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 bg-stone-900 hover:bg-stone-800 text-stone-50 font-medium text-xs px-6 py-3 tracking-widest uppercase transition-all duration-200"
+                    >
+                      📅 Add to Google Calendar
+                    </a>
+                    <button
+                      onClick={() => downloadICSFile(form)}
+                      className="inline-flex items-center justify-center gap-2 border border-stone-300 hover:border-stone-900 text-stone-700 hover:text-stone-900 font-medium text-xs px-6 py-3 tracking-widest uppercase transition-all duration-200"
+                    >
+                      🍎 Add to Apple Calendar
+                    </button>
+                  </div>
+                ) : null}
+
+                <p className="text-stone-400 text-sm">Or call us directly: <a href="tel:+12017363239" className="text-stone-900 hover:underline font-medium">(201) 736-3239</a></p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -136,6 +248,37 @@ export default function ContactPage() {
                     ))}
                   </select>
                 </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-stone-500 text-sm font-medium mb-2" htmlFor="date">
+                      Preferred Date
+                    </label>
+                    <input
+                      type="date"
+                      id="date"
+                      name="date"
+                      value={form.date}
+                      min={minDate}
+                      onChange={handleChange}
+                      className="w-full bg-white border border-stone-200 focus:border-stone-900 text-stone-800 px-4 py-3 text-sm outline-none transition-colors duration-200"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-stone-500 text-sm font-medium mb-2" htmlFor="time">
+                      Preferred Time
+                    </label>
+                    <input
+                      type="time"
+                      id="time"
+                      name="time"
+                      value={form.time}
+                      min="11:00"
+                      max="21:00"
+                      onChange={handleChange}
+                      className="w-full bg-white border border-stone-200 focus:border-stone-900 text-stone-800 px-4 py-3 text-sm outline-none transition-colors duration-200"
+                    />
+                  </div>
+                </div>
                 <div>
                   <label className="block text-stone-500 text-sm font-medium mb-2" htmlFor="message">
                     Message *
@@ -155,7 +298,7 @@ export default function ContactPage() {
                   type="submit"
                   className="w-full bg-stone-900 hover:bg-stone-800 text-stone-50 font-medium py-4 transition-all duration-200 tracking-widest uppercase text-xs"
                 >
-                  Send Message →
+                  Send Booking Request →
                 </button>
               </form>
             )}

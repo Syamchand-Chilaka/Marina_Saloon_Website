@@ -40,12 +40,12 @@ const testimonials = [
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const galleryImages = [
-  { id: 1, caption: "Fresh Fade", src: `${basePath}/gallery/square/fresh-fade.jpg` },
-  { id: 2, caption: "Classic Cut", src: `${basePath}/gallery/square/classic-cut.jpg` },
-  { id: 3, caption: "Beard Trim", src: `${basePath}/gallery/square/beard-trim.jpg` },
-  { id: 4, caption: "Scissor Cut", src: `${basePath}/gallery/square/scissor-cut.jpg` },
-  { id: 5, caption: "Shape-up", src: `${basePath}/gallery/square/shape-up.jpg` },
-  { id: 6, caption: "Hot Towel Shave", src: `${basePath}/gallery/square/hot-towel-shave.jpg` },
+  { id: 1, caption: "Curly Fade", src: `${basePath}/images/curly-fade-side.jpg` },
+  { id: 2, caption: "Kids Cut", src: `${basePath}/images/kids-cut-blonde.jpg` },
+  { id: 3, caption: "Beard & Fade", src: `${basePath}/images/curly-beard-trim.jpg` },
+  { id: 4, caption: "Barber at Work", src: `${basePath}/images/barber-at-work.jpg` },
+  { id: 5, caption: "Happy Client", src: `${basePath}/images/kids-cut-smile.jpg` },
+  { id: 6, caption: "Fresh Cut", src: `${basePath}/images/mirror-selfie.jpg` },
 ];
 
 const hours = [
@@ -102,16 +102,32 @@ export default function Home() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-16">
             <div>
-              <p className="text-stone-600 text-lg leading-relaxed mb-6">
+              <p className="text-stone-600 text-base sm:text-lg leading-relaxed mb-6">
                 Rooted in the heart of Journal Square, Marina Barbershop has been a staple for the Jersey City
                 community. We&apos;re not a chain — we&apos;re a crew of skilled barbers who take pride in
                 every fade, every lineup, and every hot towel shave we deliver.
               </p>
-              <p className="text-stone-500 leading-relaxed">
+              <p className="text-stone-500 text-sm sm:text-base leading-relaxed mb-8">
                 Whether you&apos;re a regular who&apos;s been coming for years or a first-timer walking in off Bergen Ave,
                 you get the same thing: precision work, honest prices, and a shop that feels like home. No
                 appointments, no pretense — just great cuts and good conversation.
               </p>
+              {/* Owner photo */}
+              <div className="flex items-center gap-4">
+                <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden flex-shrink-0">
+                  <Image
+                    src={`${basePath}/images/owner-portrait.jpg`}
+                    alt="Marina Barbershop owner"
+                    fill
+                    className="object-cover"
+                    sizes="80px"
+                  />
+                </div>
+                <div>
+                  <p className="font-display font-semibold text-stone-900 text-sm sm:text-base">Marina Barbershop</p>
+                  <p className="text-stone-400 text-xs sm:text-sm">Serving Jersey City since day one</p>
+                </div>
+              </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
@@ -141,7 +157,7 @@ export default function Home() {
             </h2>
             <div className="w-12 h-px bg-stone-300 mx-auto mt-5" />
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3 md:gap-4">
             {galleryImages.map((img) => (
               <div key={img.id} className="relative aspect-square overflow-hidden group">
                 <Image
@@ -221,24 +237,34 @@ export default function Home() {
       </section>
 
       {/* CTA Banner */}
-      <section className="py-24 md:py-32 bg-stone-900 relative overflow-hidden">
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <section className="py-24 md:py-32 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src={`${basePath}/images/barber-client-selfie.jpg`}
+            alt="Marina Barbershop"
+            fill
+            className="object-cover scale-110 blur-[2px]"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-stone-900/75" />
+        </div>
+        <div className="relative z-10 text-center px-5 max-w-4xl mx-auto">
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6">
             Walk-ins <span className="italic text-stone-400">Always</span> Welcome
           </h2>
           <p className="text-stone-400 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
             No appointment needed. Come in, sit down, and let our barbers take care of you.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <a
               href="tel:+12017363239"
-              className="bg-white hover:bg-stone-100 text-stone-900 font-medium text-sm px-10 py-4 transition-all duration-200 tracking-widest uppercase"
+              className="bg-white hover:bg-stone-100 text-stone-900 font-medium text-sm px-8 sm:px-10 py-3.5 sm:py-4 transition-all duration-200 tracking-widest uppercase"
             >
               Call (201) 736-3239
             </a>
             <Link
               href="/contact"
-              className="border border-stone-600 hover:border-white text-stone-300 hover:text-white font-medium text-sm px-10 py-4 transition-all duration-200 tracking-widest uppercase"
+              className="border border-stone-400 hover:border-white text-stone-300 hover:text-white font-medium text-sm px-8 sm:px-10 py-3.5 sm:py-4 transition-all duration-200 tracking-widest uppercase"
             >
               Get Directions
             </Link>

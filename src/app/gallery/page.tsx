@@ -9,18 +9,18 @@ export const metadata: Metadata = {
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 const galleryItems = [
-  { id: 1, caption: "Fresh Fade", category: "Haircut", src: `${basePath}/gallery/fresh-fade.jpg`, width: 800, height: 1000 },
-  { id: 2, caption: "Classic Taper", category: "Haircut", src: `${basePath}/gallery/classic-cut.jpg`, width: 800, height: 800 },
-  { id: 3, caption: "Beard Trim & Shape", category: "Beard", src: `${basePath}/gallery/beard-trim.jpg`, width: 800, height: 1000 },
-  { id: 4, caption: "High Fade", category: "Haircut", src: `${basePath}/gallery/scissor-cut.jpg`, width: 800, height: 800 },
-  { id: 5, caption: "Scissor Cut", category: "Haircut", src: `${basePath}/gallery/shape-up.jpg`, width: 800, height: 1000 },
-  { id: 6, caption: "Hot Towel Shave", category: "Shave", src: `${basePath}/gallery/hot-towel-shave.jpg`, width: 800, height: 800 },
-  { id: 7, caption: "Mid Fade", category: "Haircut", src: `${basePath}/gallery/mid-fade.jpg`, width: 800, height: 1000 },
-  { id: 8, caption: "Beard Shape-up", category: "Beard", src: `${basePath}/gallery/beard-shape.jpg`, width: 800, height: 800 },
-  { id: 9, caption: "Low Taper", category: "Haircut", src: `${basePath}/gallery/low-taper.jpg`, width: 800, height: 800 },
-  { id: 10, caption: "Kids Cut", category: "Haircut", src: `${basePath}/gallery/kids-cut.jpg`, width: 800, height: 1000 },
-  { id: 11, caption: "Full Beard Groom", category: "Beard", src: `${basePath}/gallery/full-beard.jpg`, width: 800, height: 800 },
-  { id: 12, caption: "Design Cut", category: "Haircut", src: `${basePath}/gallery/design-cut.jpg`, width: 800, height: 1000 },
+  { id: 1, caption: "Curly Fade", category: "Haircut", src: `${basePath}/images/curly-fade-side.jpg`, width: 243, height: 244 },
+  { id: 2, caption: "Curly Fade — Back View", category: "Haircut", src: `${basePath}/images/curly-fade-back.jpg`, width: 243, height: 406 },
+  { id: 3, caption: "Kids Cut", category: "Haircut", src: `${basePath}/images/kids-cut-blonde.jpg`, width: 243, height: 244 },
+  { id: 4, caption: "Curly Cut", category: "Haircut", src: `${basePath}/images/curly-cut-side.jpg`, width: 243, height: 406 },
+  { id: 5, caption: "Beard Trim & Fade", category: "Beard", src: `${basePath}/images/curly-beard-trim.jpg`, width: 243, height: 304 },
+  { id: 6, caption: "Kids Haircut", category: "Haircut", src: `${basePath}/images/kids-cut-smile.jpg`, width: 243, height: 244 },
+  { id: 7, caption: "Happy Client", category: "Haircut", src: `${basePath}/images/mirror-selfie.jpg`, width: 243, height: 406 },
+  { id: 8, caption: "Barber at Work", category: "Shop", src: `${basePath}/images/barber-at-work.jpg`, width: 243, height: 244 },
+  { id: 9, caption: "Kids Cut — Design", category: "Haircut", src: `${basePath}/images/kids-cut-peace.jpg`, width: 243, height: 244 },
+  { id: 10, caption: "Our Barber", category: "Team", src: `${basePath}/images/barber-client-selfie.jpg`, width: 243, height: 244 },
+  { id: 11, caption: "Kids Fade", category: "Haircut", src: `${basePath}/images/kids-cut-flag.jpg`, width: 243, height: 244 },
+  { id: 12, caption: "The Owner", category: "Team", src: `${basePath}/images/owner-portrait.jpg`, width: 243, height: 406 },
 ];
 
 export default function GalleryPage() {
@@ -42,7 +42,7 @@ export default function GalleryPage() {
 
       {/* Gallery Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-        <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+        <div className="columns-2 sm:columns-2 md:columns-3 lg:columns-4 gap-3 md:gap-4 space-y-3 md:space-y-4">
           {galleryItems.map((item) => (
             <div key={item.id} className="break-inside-avoid group relative overflow-hidden">
               <Image
