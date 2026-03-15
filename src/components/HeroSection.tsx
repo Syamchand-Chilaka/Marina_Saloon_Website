@@ -29,12 +29,12 @@ export default function HeroSection() {
             Journal Square · Jersey City
           </p>
 
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold leading-[0.95] tracking-tight text-white mb-6 sm:mb-8">
-            Sharp Cuts.
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[0.95] tracking-tight text-white mb-6 sm:mb-8">
+            Sharp Cuts
             <br />
-            <span className="italic text-stone-300">Clean Fades.</span>
+            <span className="italic text-stone-300">Clean Fades</span>
             <br />
-            Trusted in Jersey City.
+            Trusted in Jersey City
           </h1>
 
           <p className="text-stone-300 text-base sm:text-lg md:text-xl max-w-md leading-relaxed mb-8 sm:mb-10 animate-hero-fade-in-delay">
