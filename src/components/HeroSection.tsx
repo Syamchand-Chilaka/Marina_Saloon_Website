@@ -30,11 +30,11 @@ export default function HeroSection() {
           </p>
 
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold leading-[0.95] tracking-tight text-white mb-6 sm:mb-8">
-            The Art of
+            Sharp Cuts.
             <br />
-            <span className="italic text-stone-300">Precision</span>
+            <span className="italic text-stone-300">Clean Fades.</span>
             <br />
-            Grooming
+            Trusted in Jersey City.
           </h1>
 
           <p className="text-stone-300 text-base sm:text-lg md:text-xl max-w-md leading-relaxed mb-8 sm:mb-10 animate-hero-fade-in-delay">
