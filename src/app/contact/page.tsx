@@ -3,13 +3,13 @@ import { useState } from "react";
 import type { FormEvent } from "react";
 
 const hours = [
-  { day: "Monday", hours: "11:00 AM – 9:00 PM", closed: false },
-  { day: "Tuesday", hours: "11:00 AM – 9:00 PM", closed: false },
+  { day: "Monday", hours: "11:00 AM – 9:00 PM" },
+  { day: "Tuesday", hours: "11:00 AM – 9:00 PM" },
   { day: "Wednesday", hours: "Closed", closed: true },
-  { day: "Thursday", hours: "11:00 AM – 9:00 PM", closed: false },
-  { day: "Friday", hours: "11:00 AM – 9:00 PM", closed: false },
-  { day: "Saturday", hours: "11:00 AM – 9:00 PM", closed: false },
-  { day: "Sunday", hours: "11:00 AM – 3:00 PM", closed: false },
+  { day: "Thursday", hours: "11:00 AM – 9:00 PM" },
+  { day: "Friday", hours: "11:00 AM – 9:00 PM" },
+  { day: "Saturday", hours: "11:00 AM – 9:00 PM" },
+  { day: "Sunday", hours: "11:00 AM – 3:00 PM" },
 ];
 
 const services = [
