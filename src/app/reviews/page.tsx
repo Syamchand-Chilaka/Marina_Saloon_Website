@@ -81,7 +81,7 @@ const allReviews = [
 
 export default function ReviewsPage() {
   const averageRating = 5.0;
-  const totalReviews = allReviews.length;
+  const totalReviews = 291;
 
   return (
     <div className="min-h-screen bg-stone-50 dark:bg-stone-950 pt-20">
@@ -102,7 +102,7 @@ export default function ReviewsPage() {
                 <span key={i} className="text-xl text-stone-800 dark:text-stone-200">★</span>
               ))}
             </div>
-            <p className="text-stone-400 dark:text-stone-500 text-sm">Based on {totalReviews}+ reviews</p>
+            <p className="text-stone-400 dark:text-stone-500 text-sm">Based on {totalReviews} reviews</p>
           </div>
         </div>
       </div>
