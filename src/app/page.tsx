@@ -237,23 +237,16 @@ export default function Home() {
       </section>
 
       {/* CTA Banner */}
-      <section className="py-24 md:py-32 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src={`${basePath}/images/barber-client-selfie.jpg`}
-            alt="Marina Barbershop"
-            fill
-            className="object-cover scale-110 blur-[2px]"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-stone-900/75" />
-        </div>
-        <div className="relative z-10 text-center px-5 max-w-4xl mx-auto">
+      <section className="py-24 md:py-32 bg-stone-900">
+        <div className="text-center px-5 max-w-4xl mx-auto">
+          <div className="inline-block border border-stone-700 rounded-full px-5 py-1.5 mb-8">
+            <span className="text-stone-400 text-xs tracking-[0.3em] uppercase">No Appointment Needed</span>
+          </div>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6">
-            Walk-ins <span className="italic text-stone-400">Always</span> Welcome
+            Walk-ins <span className="italic font-light text-stone-400">Always</span> Welcome
           </h2>
-          <p className="text-stone-400 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
-            No appointment needed. Come in, sit down, and let our barbers take care of you.
+          <p className="text-stone-400 text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
+            Come in, sit down, and let our barbers take care of you.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <a
@@ -264,7 +257,7 @@ export default function Home() {
             </a>
             <Link
               href="/contact"
-              className="border border-stone-400 hover:border-white text-stone-300 hover:text-white font-medium text-sm px-8 sm:px-10 py-3.5 sm:py-4 transition-all duration-200 tracking-widest uppercase"
+              className="border border-stone-600 hover:border-white text-stone-300 hover:text-white font-medium text-sm px-8 sm:px-10 py-3.5 sm:py-4 transition-all duration-200 tracking-widest uppercase"
             >
               Get Directions
             </Link>
