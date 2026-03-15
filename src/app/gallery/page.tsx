@@ -7,18 +7,18 @@ export const metadata: Metadata = {
 };
 
 const galleryItems = [
-  { id: 1, caption: "Fresh Fade", category: "Haircut", seed: "fade-cut-1", width: 400, height: 500 },
-  { id: 2, caption: "Classic Taper", category: "Haircut", seed: "classic-cut-2", width: 400, height: 400 },
-  { id: 3, caption: "Beard Trim & Shape", category: "Beard", seed: "beard-trim-3", width: 400, height: 500 },
-  { id: 4, caption: "High Fade", category: "Haircut", seed: "high-fade-4", width: 400, height: 400 },
-  { id: 5, caption: "Scissor Cut", category: "Haircut", seed: "scissor-5", width: 400, height: 500 },
-  { id: 6, caption: "Hot Towel Shave", category: "Shave", seed: "shave-6", width: 400, height: 400 },
-  { id: 7, caption: "Mid Fade", category: "Haircut", seed: "mid-fade-7", width: 400, height: 500 },
-  { id: 8, caption: "Beard Shape-up", category: "Beard", seed: "beard-8", width: 400, height: 400 },
-  { id: 9, caption: "Low Taper", category: "Haircut", seed: "taper-9", width: 400, height: 400 },
-  { id: 10, caption: "Kids Cut", category: "Haircut", seed: "kids-10", width: 400, height: 500 },
-  { id: 11, caption: "Full Beard Groom", category: "Beard", seed: "beard-full-11", width: 400, height: 400 },
-  { id: 12, caption: "Design Cut", category: "Haircut", seed: "design-12", width: 400, height: 500 },
+  { id: 1, caption: "Fresh Fade", category: "Haircut", src: "/gallery/fresh-fade.svg", width: 400, height: 500 },
+  { id: 2, caption: "Classic Taper", category: "Haircut", src: "/gallery/classic-cut.svg", width: 400, height: 400 },
+  { id: 3, caption: "Beard Trim & Shape", category: "Beard", src: "/gallery/beard-trim.svg", width: 400, height: 500 },
+  { id: 4, caption: "High Fade", category: "Haircut", src: "/gallery/scissor-cut.svg", width: 400, height: 400 },
+  { id: 5, caption: "Scissor Cut", category: "Haircut", src: "/gallery/shape-up.svg", width: 400, height: 500 },
+  { id: 6, caption: "Hot Towel Shave", category: "Shave", src: "/gallery/hot-towel-shave.svg", width: 400, height: 400 },
+  { id: 7, caption: "Mid Fade", category: "Haircut", src: "/gallery/mid-fade.svg", width: 400, height: 500 },
+  { id: 8, caption: "Beard Shape-up", category: "Beard", src: "/gallery/beard-shape.svg", width: 400, height: 400 },
+  { id: 9, caption: "Low Taper", category: "Haircut", src: "/gallery/low-taper.svg", width: 400, height: 400 },
+  { id: 10, caption: "Kids Cut", category: "Haircut", src: "/gallery/kids-cut.svg", width: 400, height: 500 },
+  { id: 11, caption: "Full Beard Groom", category: "Beard", src: "/gallery/full-beard.svg", width: 400, height: 400 },
+  { id: 12, caption: "Design Cut", category: "Haircut", src: "/gallery/design-cut.svg", width: 400, height: 500 },
 ];
 
 export default function GalleryPage() {
@@ -44,7 +44,7 @@ export default function GalleryPage() {
           {galleryItems.map((item) => (
             <div key={item.id} className="break-inside-avoid group relative rounded-xl overflow-hidden">
               <Image
-                src={`https://picsum.photos/seed/${item.seed}/${item.width}/${item.height}`}
+                src={item.src}
                 alt={item.caption}
                 width={item.width}
                 height={item.height}

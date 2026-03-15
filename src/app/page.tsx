@@ -38,12 +38,12 @@ const testimonials = [
 ];
 
 const galleryImages = [
-  { id: 1, caption: "Fresh Fade", seed: "barbershop1" },
-  { id: 2, caption: "Classic Cut", seed: "barbershop2" },
-  { id: 3, caption: "Beard Trim", seed: "barbershop3" },
-  { id: 4, caption: "Scissor Cut", seed: "barbershop4" },
-  { id: 5, caption: "Shape-up", seed: "barbershop5" },
-  { id: 6, caption: "Hot Towel Shave", seed: "barbershop6" },
+  { id: 1, caption: "Fresh Fade", src: "/gallery/square/fresh-fade.svg" },
+  { id: 2, caption: "Classic Cut", src: "/gallery/square/classic-cut.svg" },
+  { id: 3, caption: "Beard Trim", src: "/gallery/square/beard-trim.svg" },
+  { id: 4, caption: "Scissor Cut", src: "/gallery/square/scissor-cut.svg" },
+  { id: 5, caption: "Shape-up", src: "/gallery/square/shape-up.svg" },
+  { id: 6, caption: "Hot Towel Shave", src: "/gallery/square/hot-towel-shave.svg" },
 ];
 
 const hours = [
@@ -101,7 +101,7 @@ export default function Home() {
             {galleryImages.map((img) => (
               <div key={img.id} className="relative aspect-square rounded-xl overflow-hidden group">
                 <Image
-                  src={`https://picsum.photos/seed/${img.seed}/400/400`}
+                  src={img.src}
                   alt={img.caption}
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
