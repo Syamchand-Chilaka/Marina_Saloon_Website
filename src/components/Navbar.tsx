@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -57,6 +58,7 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <LanguageSwitcher />
             <a
               href="tel:+12017363239"
               className="bg-amber-400 hover:bg-amber-500 text-zinc-950 font-bold text-sm px-5 py-2.5 rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-amber-400/20 tracking-wide"
@@ -104,6 +106,9 @@ export default function Navbar() {
           >
             Book Now — Call Us
           </a>
+          <div className="mt-2 flex justify-center">
+            <LanguageSwitcher />
+          </div>
         </div>
       </div>
     </nav>
