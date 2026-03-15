@@ -7,10 +7,36 @@
   body {
     @apply bg-zinc-950 text-white;
   }
+  ::selection {
+    @apply bg-amber-400/80 text-zinc-950;
+  }
 }
 
 @layer utilities {
   .text-gradient {
     @apply bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent;
   }
+}
+
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero-fade-in {
+  animation: hero-fade-in 0.8s ease-out both;
+}
+
+.animate-hero-fade-in-delay {
+  animation: hero-fade-in 0.8s ease-out 0.2s both;
+}
+
+.animate-hero-fade-in-delay-2 {
+  animation: hero-fade-in 0.8s ease-out 0.4s both;
 }

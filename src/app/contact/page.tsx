@@ -3,13 +3,13 @@ import { useState } from "react";
 import type { FormEvent } from "react";
 
 const hours = [
-  { day: "Monday", hours: "9:00 AM – 8:00 PM" },
-  { day: "Tuesday", hours: "9:00 AM – 8:00 PM" },
-  { day: "Wednesday", hours: "9:00 AM – 8:00 PM" },
-  { day: "Thursday", hours: "9:00 AM – 8:00 PM" },
-  { day: "Friday", hours: "9:00 AM – 8:00 PM" },
-  { day: "Saturday", hours: "9:00 AM – 7:00 PM" },
-  { day: "Sunday", hours: "9:00 AM – 7:00 PM" },
+  { day: "Monday", hours: "11:00 AM – 9:00 PM", closed: false },
+  { day: "Tuesday", hours: "11:00 AM – 9:00 PM", closed: false },
+  { day: "Wednesday", hours: "Closed", closed: true },
+  { day: "Thursday", hours: "11:00 AM – 9:00 PM", closed: false },
+  { day: "Friday", hours: "11:00 AM – 9:00 PM", closed: false },
+  { day: "Saturday", hours: "11:00 AM – 9:00 PM", closed: false },
+  { day: "Sunday", hours: "11:00 AM – 3:00 PM", closed: false },
 ];
 
 const services = [
@@ -215,7 +215,7 @@ export default function ContactPage() {
                   }`}
                 >
                   <span className="text-zinc-300">{item.day}</span>
-                  <span className="text-amber-400 font-semibold">{item.hours}</span>
+                  <span className={`font-semibold ${item.closed ? "text-red-400" : "text-amber-400"}`}>{item.hours}</span>
                 </div>
               ))}
             </div>

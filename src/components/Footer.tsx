@@ -71,8 +71,9 @@ export default function Footer() {
               <div className="flex gap-2">
                 <span className="text-amber-400">🕐</span>
                 <div>
-                  <p>Mon–Fri: 9:00 AM – 8:00 PM</p>
-                  <p>Sat–Sun: 9:00 AM – 7:00 PM</p>
+                  <p>Mon–Tue, Thu–Sat: 11:00 AM – 9:00 PM</p>
+                  <p>Sun: 11:00 AM – 3:00 PM</p>
+                  <p>Wed: Closed</p>
                 </div>
               </div>
             </div>

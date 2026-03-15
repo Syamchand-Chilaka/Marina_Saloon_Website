@@ -47,13 +47,13 @@ const galleryImages = [
 ];
 
 const hours = [
-  { day: "Monday", hours: "9:00 AM – 8:00 PM" },
-  { day: "Tuesday", hours: "9:00 AM – 8:00 PM" },
-  { day: "Wednesday", hours: "9:00 AM – 8:00 PM" },
-  { day: "Thursday", hours: "9:00 AM – 8:00 PM" },
-  { day: "Friday", hours: "9:00 AM – 8:00 PM" },
-  { day: "Saturday", hours: "9:00 AM – 7:00 PM" },
-  { day: "Sunday", hours: "9:00 AM – 7:00 PM" },
+  { day: "Monday", hours: "11:00 AM – 9:00 PM" },
+  { day: "Tuesday", hours: "11:00 AM – 9:00 PM" },
+  { day: "Wednesday", hours: "Closed", closed: true },
+  { day: "Thursday", hours: "11:00 AM – 9:00 PM" },
+  { day: "Friday", hours: "11:00 AM – 9:00 PM" },
+  { day: "Saturday", hours: "11:00 AM – 9:00 PM" },
+  { day: "Sunday", hours: "11:00 AM – 3:00 PM" },
 ];
 
 export default function Home() {
@@ -83,6 +83,48 @@ export default function Home() {
             >
               View All Services →
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Marina Barbershop */}
+      <section className="py-16 md:py-24 bg-zinc-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <p className="text-amber-400 text-sm font-semibold tracking-widest uppercase mb-3">About Us</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white uppercase tracking-tight">
+              Why Marina Barbershop
+            </h2>
+            <div className="w-16 h-1 bg-amber-400 mx-auto mt-4 rounded-full" />
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-16">
+            <div>
+              <p className="text-zinc-300 text-lg leading-relaxed mb-6">
+                Rooted in the heart of Journal Square, Marina Barbershop has been a staple for the Jersey City
+                community. We&apos;re not a chain — we&apos;re a crew of skilled barbers who take pride in
+                every fade, every lineup, and every hot towel shave we deliver.
+              </p>
+              <p className="text-zinc-400 leading-relaxed">
+                Whether you&apos;re a regular who&apos;s been coming for years or a first-timer walking in off Bergen Ave,
+                you get the same thing: precision work, honest prices, and a shop that feels like home. No
+                appointments, no pretense — just great cuts and good conversation.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { icon: "✂️", title: "Expert Barbers", desc: "Years of experience with every style — classic to modern" },
+                { icon: "🚶", title: "Walk-ins Welcome", desc: "No appointments needed, just stop by anytime we're open" },
+                { icon: "💈", title: "Premium Products", desc: "Top-shelf grooming products for the best results" },
+                { icon: "🤝", title: "Community First", desc: "Proudly serving Journal Square and all of Jersey City" },
+              ].map((feature) => (
+                <div key={feature.title} className="bg-zinc-950 border border-zinc-800 rounded-2xl p-5 text-center hover:border-amber-400/30 transition-colors duration-300">
+                  <div className="text-3xl mb-3">{feature.icon}</div>
+                  <h3 className="text-white font-bold text-sm mb-1.5">{feature.title}</h3>
+                  <p className="text-zinc-500 text-xs leading-relaxed">{feature.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -143,7 +185,7 @@ export default function Home() {
                 } ${item.day === "Saturday" || item.day === "Sunday" ? "bg-zinc-800/50" : ""}`}
               >
                 <span className="text-white font-medium">{item.day}</span>
-                <span className="text-amber-400 font-semibold text-sm">{item.hours}</span>
+                <span className={`font-semibold text-sm ${item.closed ? "text-red-400" : "text-amber-400"}`}>{item.hours}</span>
               </div>
             ))}
           </div>
@@ -229,7 +271,7 @@ export default function Home() {
             <div className="flex flex-col items-center gap-3">
               <div className="w-12 h-12 bg-amber-400/10 rounded-full flex items-center justify-center text-2xl">🕐</div>
               <h3 className="text-white font-bold">Hours</h3>
-              <p className="text-zinc-400 text-sm">Mon–Fri: 9AM–8PM<br />Sat–Sun: 9AM–7PM</p>
+              <p className="text-zinc-400 text-sm">Mon–Tue, Thu–Sat: 11AM–9PM<br />Sun: 11AM–3PM · Wed: Closed</p>
             </div>
           </div>
         </div>
