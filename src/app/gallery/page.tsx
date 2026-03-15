@@ -25,16 +25,16 @@ const galleryItems = [
 
 export default function GalleryPage() {
   return (
-    <div className="min-h-screen bg-zinc-950 pt-20">
+    <div className="min-h-screen bg-stone-50 pt-20">
       {/* Header */}
-      <div className="bg-zinc-900 border-b border-zinc-800 py-16 md:py-20">
+      <div className="bg-stone-100 border-b border-stone-200 py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-amber-400 text-sm font-semibold tracking-widest uppercase mb-3">Our Work</p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight mb-4">
+          <p className="text-stone-400 text-xs font-medium tracking-[0.3em] uppercase mb-3">Our Work</p>
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-stone-900 tracking-tight mb-4">
             Gallery
           </h1>
-          <div className="w-16 h-1 bg-amber-400 mx-auto mb-6 rounded-full" />
-          <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
+          <div className="w-12 h-px bg-stone-300 mx-auto mb-6" />
+          <p className="text-stone-500 text-lg max-w-2xl mx-auto">
             Every cut tells a story. Browse some of our recent work from Marina Barbershop.
           </p>
         </div>
@@ -44,18 +44,18 @@ export default function GalleryPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
         <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
           {galleryItems.map((item) => (
-            <div key={item.id} className="break-inside-avoid group relative rounded-xl overflow-hidden">
+            <div key={item.id} className="break-inside-avoid group relative overflow-hidden">
               <Image
                 src={item.src}
                 alt={item.caption}
                 width={item.width}
                 height={item.height}
-                className="w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full object-cover group-hover:scale-105 transition-transform duration-700"
                 sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
-                <p className="text-white font-semibold text-sm">{item.caption}</p>
-                <p className="text-amber-400 text-xs">{item.category}</p>
+              <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/40 transition-all duration-500 flex flex-col justify-end p-4">
+                <p className="text-white font-medium text-sm opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">{item.caption}</p>
+                <p className="text-stone-300 text-xs opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 delay-75">{item.category}</p>
               </div>
             </div>
           ))}
@@ -63,10 +63,10 @@ export default function GalleryPage() {
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <p className="text-zinc-400 text-lg mb-6">Like what you see? Come in for your own transformation.</p>
+          <p className="text-stone-500 text-lg mb-6">Like what you see? Come in for your own transformation.</p>
           <a
             href="tel:+12017363239"
-            className="inline-block bg-amber-400 hover:bg-amber-500 text-zinc-950 font-black px-10 py-4 rounded-full transition-all duration-200 hover:shadow-2xl hover:shadow-amber-400/25 tracking-wide uppercase text-sm"
+            className="inline-block bg-stone-900 hover:bg-stone-800 text-stone-50 font-medium px-10 py-4 transition-all duration-200 tracking-widest uppercase text-xs"
           >
             Book Your Cut — (201) 736-3239
           </a>

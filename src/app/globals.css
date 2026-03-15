@@ -1,20 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @layer base {
   html {
     scroll-behavior: smooth;
   }
+
   body {
-    @apply bg-zinc-950 text-white;
+    @apply bg-stone-50 text-stone-800;
+    font-family: 'Inter', system-ui, sans-serif;
   }
+
   ::selection {
-    @apply bg-amber-400/80 text-zinc-950;
+    @apply bg-stone-800 text-stone-50;
   }
 }
 
 @layer utilities {
-  .text-gradient {
-    @apply bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent;
+  .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
   }
 }
 
@@ -23,20 +27,37 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
+@keyframes hero-slide-right {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .animate-hero-fade-in {
-  animation: hero-fade-in 0.8s ease-out both;
+  animation: hero-fade-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .animate-hero-fade-in-delay {
-  animation: hero-fade-in 0.8s ease-out 0.2s both;
+  animation: hero-fade-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
 }
 
 .animate-hero-fade-in-delay-2 {
-  animation: hero-fade-in 0.8s ease-out 0.4s both;
+  animation: hero-fade-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+
+.animate-hero-slide-right {
+  animation: hero-slide-right 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
 }

@@ -51,16 +51,16 @@ const serviceCategories = [
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen bg-zinc-950 pt-20">
+    <div className="min-h-screen bg-stone-50 pt-20">
       {/* Header */}
-      <div className="bg-zinc-900 border-b border-zinc-800 py-16 md:py-20">
+      <div className="bg-stone-100 border-b border-stone-200 py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-amber-400 text-sm font-semibold tracking-widest uppercase mb-3">Marina Barbershop</p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight mb-4">
+          <p className="text-stone-400 text-xs font-medium tracking-[0.3em] uppercase mb-3">Marina Barbershop</p>
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-stone-900 tracking-tight mb-4">
             Services & Pricing
           </h1>
-          <div className="w-16 h-1 bg-amber-400 mx-auto mb-6 rounded-full" />
-          <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
+          <div className="w-12 h-px bg-stone-300 mx-auto mb-6" />
+          <p className="text-stone-500 text-lg max-w-2xl mx-auto">
             Premium barbershop services at honest prices. Walk-ins welcome — no appointment needed.
           </p>
         </div>
@@ -72,10 +72,10 @@ export default function ServicesPage() {
           <div key={cat.category} className="mb-14 md:mb-16">
             <div className="flex items-center gap-3 mb-6">
               <span className="text-2xl">{cat.icon}</span>
-              <h2 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight">
+              <h2 className="font-display text-2xl md:text-3xl font-bold text-stone-900 tracking-tight">
                 {cat.category}
               </h2>
-              <div className="flex-1 h-px bg-zinc-800 ml-2" />
+              <div className="flex-1 h-px bg-stone-200 ml-2" />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {cat.services.map((service) => (
@@ -86,12 +86,12 @@ export default function ServicesPage() {
         ))}
 
         {/* CTA */}
-        <div className="bg-zinc-900 border border-amber-400/20 rounded-2xl p-8 text-center mt-8">
-          <h3 className="text-2xl font-black text-white mb-3 uppercase">Ready for Your Cut?</h3>
-          <p className="text-zinc-400 mb-6">Walk in anytime or give us a call to check wait times.</p>
+        <div className="bg-stone-900 p-8 text-center mt-8">
+          <h3 className="font-display text-2xl font-bold text-white mb-3">Ready for Your Cut?</h3>
+          <p className="text-stone-400 mb-6">Walk in anytime or give us a call to check wait times.</p>
           <a
             href="tel:+12017363239"
-            className="inline-block bg-amber-400 hover:bg-amber-500 text-zinc-950 font-black px-8 py-3 rounded-full transition-all duration-200 hover:shadow-xl hover:shadow-amber-400/20 tracking-wide uppercase text-sm"
+            className="inline-block bg-white hover:bg-stone-100 text-stone-900 font-medium px-8 py-3 transition-all duration-200 tracking-widest uppercase text-xs"
           >
             Call (201) 736-3239
           </a>

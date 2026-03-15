@@ -74,7 +74,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-sans bg-zinc-950 text-white antialiased">
+      <body className="bg-stone-50 text-stone-800 antialiased">
         <Navbar />
         <main>{children}</main>
         <Footer />

@@ -84,25 +84,25 @@ export default function ReviewsPage() {
   const totalReviews = allReviews.length;
 
   return (
-    <div className="min-h-screen bg-zinc-950 pt-20">
+    <div className="min-h-screen bg-stone-50 pt-20">
       {/* Header */}
-      <div className="bg-zinc-900 border-b border-zinc-800 py-16 md:py-20">
+      <div className="bg-stone-100 border-b border-stone-200 py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-amber-400 text-sm font-semibold tracking-widest uppercase mb-3">Customer Reviews</p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight mb-4">
+          <p className="text-stone-400 text-xs font-medium tracking-[0.3em] uppercase mb-3">Customer Reviews</p>
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-stone-900 tracking-tight mb-4">
             What People Say
           </h1>
-          <div className="w-16 h-1 bg-amber-400 mx-auto mb-8 rounded-full" />
+          <div className="w-12 h-px bg-stone-300 mx-auto mb-8" />
 
           {/* Rating summary */}
-          <div className="inline-flex flex-col items-center gap-3 bg-zinc-800/50 border border-zinc-700 rounded-2xl px-8 py-6">
-            <div className="text-5xl font-black text-amber-400">{averageRating.toFixed(1)}</div>
+          <div className="inline-flex flex-col items-center gap-3 bg-white border border-stone-200 px-8 py-6">
+            <div className="font-display text-5xl font-bold text-stone-900">{averageRating.toFixed(1)}</div>
             <div className="flex gap-1">
               {Array.from({ length: 5 }).map((_, i) => (
-                <span key={i} className="text-2xl text-amber-400">★</span>
+                <span key={i} className="text-xl text-stone-800">★</span>
               ))}
             </div>
-            <p className="text-zinc-400 text-sm">Based on {totalReviews}+ reviews</p>
+            <p className="text-stone-400 text-sm">Based on {totalReviews}+ reviews</p>
           </div>
         </div>
       </div>
@@ -116,21 +116,21 @@ export default function ReviewsPage() {
         </div>
 
         {/* Google Reviews CTA */}
-        <div className="mt-16 bg-zinc-900 border border-zinc-800 rounded-2xl p-8 md:p-10 text-center">
+        <div className="mt-16 bg-stone-900 p-8 md:p-10 text-center">
           <div className="flex justify-center gap-1 mb-4">
             {Array.from({ length: 5 }).map((_, i) => (
-              <span key={i} className="text-2xl text-amber-400">★</span>
+              <span key={i} className="text-xl text-white">★</span>
             ))}
           </div>
-          <h3 className="text-2xl md:text-3xl font-black text-white mb-3 uppercase">Love Marina Barbershop?</h3>
-          <p className="text-zinc-400 mb-6 max-w-md mx-auto">
+          <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-3">Love Marina Barbershop?</h3>
+          <p className="text-stone-400 mb-6 max-w-md mx-auto">
             Leave us a review on Google and help others discover the best barbershop in Jersey City.
           </p>
           <a
             href="https://www.google.com/maps/place/Marina+Barbershop/@40.7329,-74.0625,17z/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-500 text-zinc-950 font-black px-8 py-3 rounded-full transition-all duration-200 hover:shadow-xl hover:shadow-amber-400/20 tracking-wide uppercase text-sm"
+            className="inline-flex items-center gap-2 bg-white hover:bg-stone-100 text-stone-900 font-medium px-8 py-3 transition-all duration-200 tracking-widest uppercase text-xs"
           >
             Leave a Google Review →
           </a>
