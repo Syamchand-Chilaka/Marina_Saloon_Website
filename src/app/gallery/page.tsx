@@ -6,19 +6,21 @@ export const metadata: Metadata = {
   description: "See our work — fresh fades, classic cuts, beard trims, and more at Marina Barbershop in Jersey City, NJ.",
 };
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const galleryItems = [
-  { id: 1, caption: "Fresh Fade", category: "Haircut", src: "/gallery/fresh-fade.svg", width: 400, height: 500 },
-  { id: 2, caption: "Classic Taper", category: "Haircut", src: "/gallery/classic-cut.svg", width: 400, height: 400 },
-  { id: 3, caption: "Beard Trim & Shape", category: "Beard", src: "/gallery/beard-trim.svg", width: 400, height: 500 },
-  { id: 4, caption: "High Fade", category: "Haircut", src: "/gallery/scissor-cut.svg", width: 400, height: 400 },
-  { id: 5, caption: "Scissor Cut", category: "Haircut", src: "/gallery/shape-up.svg", width: 400, height: 500 },
-  { id: 6, caption: "Hot Towel Shave", category: "Shave", src: "/gallery/hot-towel-shave.svg", width: 400, height: 400 },
-  { id: 7, caption: "Mid Fade", category: "Haircut", src: "/gallery/mid-fade.svg", width: 400, height: 500 },
-  { id: 8, caption: "Beard Shape-up", category: "Beard", src: "/gallery/beard-shape.svg", width: 400, height: 400 },
-  { id: 9, caption: "Low Taper", category: "Haircut", src: "/gallery/low-taper.svg", width: 400, height: 400 },
-  { id: 10, caption: "Kids Cut", category: "Haircut", src: "/gallery/kids-cut.svg", width: 400, height: 500 },
-  { id: 11, caption: "Full Beard Groom", category: "Beard", src: "/gallery/full-beard.svg", width: 400, height: 400 },
-  { id: 12, caption: "Design Cut", category: "Haircut", src: "/gallery/design-cut.svg", width: 400, height: 500 },
+  { id: 1, caption: "Fresh Fade", category: "Haircut", src: `${basePath}/gallery/fresh-fade.jpg`, width: 800, height: 1000 },
+  { id: 2, caption: "Classic Taper", category: "Haircut", src: `${basePath}/gallery/classic-cut.jpg`, width: 800, height: 800 },
+  { id: 3, caption: "Beard Trim & Shape", category: "Beard", src: `${basePath}/gallery/beard-trim.jpg`, width: 800, height: 1000 },
+  { id: 4, caption: "High Fade", category: "Haircut", src: `${basePath}/gallery/scissor-cut.jpg`, width: 800, height: 800 },
+  { id: 5, caption: "Scissor Cut", category: "Haircut", src: `${basePath}/gallery/shape-up.jpg`, width: 800, height: 1000 },
+  { id: 6, caption: "Hot Towel Shave", category: "Shave", src: `${basePath}/gallery/hot-towel-shave.jpg`, width: 800, height: 800 },
+  { id: 7, caption: "Mid Fade", category: "Haircut", src: `${basePath}/gallery/mid-fade.jpg`, width: 800, height: 1000 },
+  { id: 8, caption: "Beard Shape-up", category: "Beard", src: `${basePath}/gallery/beard-shape.jpg`, width: 800, height: 800 },
+  { id: 9, caption: "Low Taper", category: "Haircut", src: `${basePath}/gallery/low-taper.jpg`, width: 800, height: 800 },
+  { id: 10, caption: "Kids Cut", category: "Haircut", src: `${basePath}/gallery/kids-cut.jpg`, width: 800, height: 1000 },
+  { id: 11, caption: "Full Beard Groom", category: "Beard", src: `${basePath}/gallery/full-beard.jpg`, width: 800, height: 800 },
+  { id: 12, caption: "Design Cut", category: "Haircut", src: `${basePath}/gallery/design-cut.jpg`, width: 800, height: 1000 },
 ];
 
 export default function GalleryPage() {

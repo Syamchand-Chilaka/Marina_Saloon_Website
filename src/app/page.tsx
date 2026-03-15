@@ -37,13 +37,15 @@ const testimonials = [
   },
 ];
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const galleryImages = [
-  { id: 1, caption: "Fresh Fade", src: "/gallery/square/fresh-fade.svg" },
-  { id: 2, caption: "Classic Cut", src: "/gallery/square/classic-cut.svg" },
-  { id: 3, caption: "Beard Trim", src: "/gallery/square/beard-trim.svg" },
-  { id: 4, caption: "Scissor Cut", src: "/gallery/square/scissor-cut.svg" },
-  { id: 5, caption: "Shape-up", src: "/gallery/square/shape-up.svg" },
-  { id: 6, caption: "Hot Towel Shave", src: "/gallery/square/hot-towel-shave.svg" },
+  { id: 1, caption: "Fresh Fade", src: `${basePath}/gallery/square/fresh-fade.jpg` },
+  { id: 2, caption: "Classic Cut", src: `${basePath}/gallery/square/classic-cut.jpg` },
+  { id: 3, caption: "Beard Trim", src: `${basePath}/gallery/square/beard-trim.jpg` },
+  { id: 4, caption: "Scissor Cut", src: `${basePath}/gallery/square/scissor-cut.jpg` },
+  { id: 5, caption: "Shape-up", src: `${basePath}/gallery/square/shape-up.jpg` },
+  { id: 6, caption: "Hot Towel Shave", src: `${basePath}/gallery/square/hot-towel-shave.jpg` },
 ];
 
 const hours = [
@@ -130,7 +132,7 @@ export default function Home() {
       </section>
 
       {/* Gallery Preview */}
-      <section className="py-16 md:py-24 bg-zinc-900">
+      <section className="py-16 md:py-24 bg-zinc-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-amber-400 text-sm font-semibold tracking-widest uppercase mb-3">Our Work</p>
@@ -180,9 +182,8 @@ export default function Home() {
             {hours.map((item, i) => (
               <div
                 key={item.day}
-                className={`flex justify-between items-center px-6 py-4 ${
-                  i < hours.length - 1 ? "border-b border-zinc-800" : ""
-                } ${item.day === "Saturday" || item.day === "Sunday" ? "bg-zinc-800/50" : ""}`}
+                className={`flex justify-between items-center px-6 py-4 ${i < hours.length - 1 ? "border-b border-zinc-800" : ""
+                  } ${item.day === "Saturday" || item.day === "Sunday" ? "bg-zinc-800/50" : ""}`}
               >
                 <span className="text-white font-medium">{item.day}</span>
                 <span className={`font-semibold text-sm ${item.closed ? "text-red-400" : "text-amber-400"}`}>{item.hours}</span>

@@ -29,9 +29,8 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-zinc-950/95 backdrop-blur-md shadow-lg shadow-black/20" : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-zinc-950/95 backdrop-blur-md shadow-lg shadow-black/20" : "bg-transparent"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
@@ -51,9 +50,8 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium tracking-wide transition-colors duration-200 hover:text-amber-400 ${
-                  pathname === link.href ? "text-amber-400" : "text-zinc-300"
-                }`}
+                className={`text-sm font-medium tracking-wide transition-colors duration-200 hover:text-amber-400 ${pathname === link.href ? "text-amber-400" : "text-zinc-300"
+                  }`}
               >
                 {link.label}
               </Link>
@@ -76,7 +74,7 @@ export default function Navbar() {
             <div className="w-6 h-5 flex flex-col justify-between">
               <span className={`block h-0.5 bg-current transition-all duration-300 ${isOpen ? "rotate-45 translate-y-2.5" : ""}`} />
               <span className={`block h-0.5 bg-current transition-all duration-300 ${isOpen ? "opacity-0" : ""}`} />
-              <span className={`block h-0.5 bg-current transition-all duration-300 ${isOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+              <span className={`block h-0.5 bg-current transition-all duration-300 ${isOpen ? "-rotate-45 -translate-y-2.5" : ""}`} />
             </div>
           </button>
         </div>
@@ -84,18 +82,16 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div
-        className={`md:hidden transition-all duration-300 overflow-hidden ${
-          isOpen ? "max-h-96 bg-zinc-900/95 backdrop-blur-md border-t border-zinc-800" : "max-h-0"
-        }`}
+        className={`md:hidden transition-all duration-300 overflow-hidden ${isOpen ? "max-h-96 bg-zinc-900/95 backdrop-blur-md border-t border-zinc-800" : "max-h-0"
+          }`}
       >
         <div className="px-4 py-4 flex flex-col gap-4">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`text-base font-medium py-2 border-b border-zinc-800 transition-colors ${
-                pathname === link.href ? "text-amber-400" : "text-zinc-300 hover:text-amber-400"
-              }`}
+              className={`text-base font-medium py-2 border-b border-zinc-800 transition-colors ${pathname === link.href ? "text-amber-400" : "text-zinc-300 hover:text-amber-400"
+                }`}
             >
               {link.label}
             </Link>
