@@ -51,16 +51,16 @@ const serviceCategories = [
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen bg-stone-50 pt-20">
+    <div className="min-h-screen bg-stone-50 dark:bg-stone-950 pt-20">
       {/* Header */}
-      <div className="bg-stone-100 border-b border-stone-200 py-16 md:py-20">
+      <div className="bg-stone-100 dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800 py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-stone-400 text-xs font-medium tracking-[0.3em] uppercase mb-3">Marina Barbershop</p>
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-stone-900 tracking-tight mb-4">
+          <p className="text-stone-400 dark:text-stone-500 text-xs font-medium tracking-[0.3em] uppercase mb-3">Marina Barbershop</p>
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-stone-900 dark:text-white tracking-tight mb-4">
             Services & Pricing
           </h1>
-          <div className="w-12 h-px bg-stone-300 mx-auto mb-6" />
-          <p className="text-stone-500 text-lg max-w-2xl mx-auto">
+          <div className="w-12 h-px bg-stone-300 dark:bg-stone-700 mx-auto mb-6" />
+          <p className="text-stone-500 dark:text-stone-400 text-lg max-w-2xl mx-auto">
             Premium barbershop services at honest prices. Walk-ins welcome — no appointment needed.
           </p>
         </div>
@@ -72,10 +72,10 @@ export default function ServicesPage() {
           <div key={cat.category} className="mb-14 md:mb-16">
             <div className="flex items-center gap-3 mb-6">
               <span className="text-2xl">{cat.icon}</span>
-              <h2 className="font-display text-2xl md:text-3xl font-bold text-stone-900 tracking-tight">
+              <h2 className="font-display text-2xl md:text-3xl font-bold text-stone-900 dark:text-white tracking-tight">
                 {cat.category}
               </h2>
-              <div className="flex-1 h-px bg-stone-200 ml-2" />
+              <div className="flex-1 h-px bg-stone-200 dark:bg-stone-700 ml-2" />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {cat.services.map((service) => (
@@ -86,7 +86,7 @@ export default function ServicesPage() {
         ))}
 
         {/* CTA */}
-        <div className="bg-stone-900 p-8 text-center mt-8">
+        <div className="bg-stone-900 dark:bg-stone-800 p-8 text-center mt-8">
           <h3 className="font-display text-2xl font-bold text-white mb-3">Ready for Your Cut?</h3>
           <p className="text-stone-400 mb-6">Walk in anytime or give us a call to check wait times.</p>
           <a

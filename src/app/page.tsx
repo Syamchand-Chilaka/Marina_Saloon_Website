@@ -64,14 +64,14 @@ export default function Home() {
       <HeroSection />
 
       {/* Services Preview */}
-      <section className="py-20 md:py-28 bg-white">
+      <section className="py-20 md:py-28 bg-white dark:bg-stone-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-stone-400 text-xs font-medium tracking-[0.3em] uppercase mb-3">What We Offer</p>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-stone-900 tracking-tight">
+            <p className="text-stone-400 dark:text-stone-500 text-xs font-medium tracking-[0.3em] uppercase mb-3">What We Offer</p>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-stone-900 dark:text-white tracking-tight">
               Our Services
             </h2>
-            <div className="w-12 h-px bg-stone-300 mx-auto mt-5" />
+            <div className="w-12 h-px bg-stone-300 dark:bg-stone-700 mx-auto mt-5" />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
             {featuredServices.map((service) => (
@@ -81,7 +81,7 @@ export default function Home() {
           <div className="text-center mt-12">
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 border border-stone-300 hover:border-stone-900 text-stone-700 hover:text-stone-900 font-medium text-xs px-8 py-3.5 transition-all duration-200 tracking-[0.2em] uppercase"
+              className="inline-flex items-center gap-2 border border-stone-300 dark:border-stone-700 hover:border-stone-900 dark:hover:border-white text-stone-700 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white font-medium text-xs px-8 py-3.5 transition-all duration-200 tracking-[0.2em] uppercase"
             >
               View All Services →
             </Link>
@@ -90,24 +90,24 @@ export default function Home() {
       </section>
 
       {/* Why Marina Barbershop */}
-      <section className="py-20 md:py-28 bg-stone-100">
+      <section className="py-20 md:py-28 bg-stone-100 dark:bg-stone-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-stone-400 text-xs font-medium tracking-[0.3em] uppercase mb-3">About Us</p>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-stone-900 tracking-tight">
+            <p className="text-stone-400 dark:text-stone-500 text-xs font-medium tracking-[0.3em] uppercase mb-3">About Us</p>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-stone-900 dark:text-white tracking-tight">
               Why Marina Barbershop
             </h2>
-            <div className="w-12 h-px bg-stone-300 mx-auto mt-5" />
+            <div className="w-12 h-px bg-stone-300 dark:bg-stone-700 mx-auto mt-5" />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-16">
             <div>
-              <p className="text-stone-600 text-base sm:text-lg leading-relaxed mb-6">
+              <p className="text-stone-600 dark:text-stone-400 text-base sm:text-lg leading-relaxed mb-6">
                 Rooted in the heart of Journal Square, Marina Barbershop has been a staple for the Jersey City
                 community. We&apos;re not a chain — we&apos;re a crew of skilled barbers who take pride in
                 every fade, every lineup, and every hot towel shave we deliver.
               </p>
-              <p className="text-stone-500 text-sm sm:text-base leading-relaxed mb-8">
+              <p className="text-stone-500 dark:text-stone-500 text-sm sm:text-base leading-relaxed mb-8">
                 Whether you&apos;re a regular who&apos;s been coming for years or a first-timer walking in off Bergen Ave,
                 you get the same thing: precision work, honest prices, and a shop that feels like home. No
                 appointments, no pretense — just great cuts and good conversation.
@@ -124,8 +124,8 @@ export default function Home() {
                   />
                 </div>
                 <div>
-                  <p className="font-display font-semibold text-stone-900 text-sm sm:text-base">Marina Barbershop</p>
-                  <p className="text-stone-400 text-xs sm:text-sm">Serving Jersey City since day one</p>
+                  <p className="font-display font-semibold text-stone-900 dark:text-white text-sm sm:text-base">Marina Barbershop</p>
+                  <p className="text-stone-400 dark:text-stone-500 text-xs sm:text-sm">Serving Jersey City since day one</p>
                 </div>
               </div>
             </div>
@@ -136,10 +136,10 @@ export default function Home() {
                 { icon: "💈", title: "Premium Products", desc: "Top-shelf grooming products for the best results" },
                 { icon: "🤝", title: "Community First", desc: "Proudly serving Journal Square and all of Jersey City" },
               ].map((feature) => (
-                <div key={feature.title} className="bg-white border border-stone-200 p-5 text-center hover:shadow-md transition-all duration-300">
+                <div key={feature.title} className="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-700 p-5 text-center hover:shadow-md transition-all duration-300">
                   <div className="text-3xl mb-3">{feature.icon}</div>
-                  <h3 className="text-stone-900 font-display font-semibold text-sm mb-1.5">{feature.title}</h3>
-                  <p className="text-stone-400 text-xs leading-relaxed">{feature.desc}</p>
+                  <h3 className="text-stone-900 dark:text-white font-display font-semibold text-sm mb-1.5">{feature.title}</h3>
+                  <p className="text-stone-400 dark:text-stone-500 text-xs leading-relaxed">{feature.desc}</p>
                 </div>
               ))}
             </div>
@@ -148,14 +148,14 @@ export default function Home() {
       </section>
 
       {/* Gallery Preview */}
-      <section className="py-20 md:py-28 bg-white">
+      <section className="py-20 md:py-28 bg-white dark:bg-stone-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-stone-400 text-xs font-medium tracking-[0.3em] uppercase mb-3">Our Work</p>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-stone-900 tracking-tight">
+            <p className="text-stone-400 dark:text-stone-500 text-xs font-medium tracking-[0.3em] uppercase mb-3">Our Work</p>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-stone-900 dark:text-white tracking-tight">
               Gallery
             </h2>
-            <div className="w-12 h-px bg-stone-300 mx-auto mt-5" />
+            <div className="w-12 h-px bg-stone-300 dark:bg-stone-700 mx-auto mt-5" />
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3 md:gap-4">
             {galleryImages.map((img) => (
@@ -176,7 +176,7 @@ export default function Home() {
           <div className="text-center mt-12">
             <Link
               href="/gallery"
-              className="inline-flex items-center gap-2 border border-stone-300 hover:border-stone-900 text-stone-700 hover:text-stone-900 font-medium text-xs px-8 py-3.5 transition-all duration-200 tracking-[0.2em] uppercase"
+              className="inline-flex items-center gap-2 border border-stone-300 dark:border-stone-700 hover:border-stone-900 dark:hover:border-white text-stone-700 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white font-medium text-xs px-8 py-3.5 transition-all duration-200 tracking-[0.2em] uppercase"
             >
               View Full Gallery →
             </Link>
@@ -185,40 +185,40 @@ export default function Home() {
       </section>
 
       {/* Hours */}
-      <section className="py-20 md:py-28 bg-stone-100">
+      <section className="py-20 md:py-28 bg-stone-100 dark:bg-stone-950">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <p className="text-stone-400 text-xs font-medium tracking-[0.3em] uppercase mb-3">We&apos;re Open</p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-stone-900 tracking-tight">
+            <p className="text-stone-400 dark:text-stone-500 text-xs font-medium tracking-[0.3em] uppercase mb-3">We&apos;re Open</p>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-stone-900 dark:text-white tracking-tight">
               Business Hours
             </h2>
-            <div className="w-12 h-px bg-stone-300 mx-auto mt-5" />
+            <div className="w-12 h-px bg-stone-300 dark:bg-stone-700 mx-auto mt-5" />
           </div>
-          <div className="bg-white border border-stone-200 overflow-hidden">
+          <div className="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-700 overflow-hidden">
             {hours.map((item, i) => (
               <div
                 key={item.day}
-                className={`flex justify-between items-center px-6 py-4 ${i < hours.length - 1 ? "border-b border-stone-100" : ""
-                  } ${item.day === "Saturday" || item.day === "Sunday" ? "bg-stone-50" : ""}`}
+                className={`flex justify-between items-center px-6 py-4 ${i < hours.length - 1 ? "border-b border-stone-100 dark:border-stone-800" : ""
+                  } ${item.day === "Saturday" || item.day === "Sunday" ? "bg-stone-50 dark:bg-stone-800/30" : ""}`}
               >
-                <span className="text-stone-800 font-medium">{item.day}</span>
-                <span className={`font-semibold text-sm ${item.closed ? "text-red-400" : "text-stone-900"}`}>{item.hours}</span>
+                <span className="text-stone-800 dark:text-stone-200 font-medium">{item.day}</span>
+                <span className={`font-semibold text-sm ${item.closed ? "text-red-400" : "text-stone-900 dark:text-white"}`}>{item.hours}</span>
               </div>
             ))}
           </div>
-          <p className="text-center text-stone-400 text-sm mt-5">Walk-ins always welcome — no appointment needed.</p>
+          <p className="text-center text-stone-400 dark:text-stone-500 text-sm mt-5">Walk-ins always welcome — no appointment needed.</p>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 md:py-28 bg-white">
+      <section className="py-20 md:py-28 bg-white dark:bg-stone-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-stone-400 text-xs font-medium tracking-[0.3em] uppercase mb-3">Happy Clients</p>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-stone-900 tracking-tight">
+            <p className="text-stone-400 dark:text-stone-500 text-xs font-medium tracking-[0.3em] uppercase mb-3">Happy Clients</p>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-stone-900 dark:text-white tracking-tight">
               What People Say
             </h2>
-            <div className="w-12 h-px bg-stone-300 mx-auto mt-5" />
+            <div className="w-12 h-px bg-stone-300 dark:bg-stone-700 mx-auto mt-5" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
             {testimonials.map((t) => (
@@ -228,7 +228,7 @@ export default function Home() {
           <div className="text-center mt-12">
             <Link
               href="/reviews"
-              className="inline-flex items-center gap-2 border border-stone-300 hover:border-stone-900 text-stone-700 hover:text-stone-900 font-medium text-xs px-8 py-3.5 transition-all duration-200 tracking-[0.2em] uppercase"
+              className="inline-flex items-center gap-2 border border-stone-300 dark:border-stone-700 hover:border-stone-900 dark:hover:border-white text-stone-700 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white font-medium text-xs px-8 py-3.5 transition-all duration-200 tracking-[0.2em] uppercase"
             >
               Read All Reviews →
             </Link>
@@ -237,9 +237,9 @@ export default function Home() {
       </section>
 
       {/* CTA Banner */}
-      <section className="py-24 md:py-32 bg-stone-900">
+      <section className="py-24 md:py-32 bg-stone-900 dark:bg-stone-800">
         <div className="text-center px-5 max-w-4xl mx-auto">
-          <div className="inline-block border border-stone-700 rounded-full px-5 py-1.5 mb-8">
+          <div className="inline-block border border-stone-700 dark:border-stone-600 rounded-full px-5 py-1.5 mb-8">
             <span className="text-stone-400 text-xs tracking-[0.3em] uppercase">No Appointment Needed</span>
           </div>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6">
@@ -266,25 +266,25 @@ export default function Home() {
       </section>
 
       {/* Contact Mini */}
-      <section className="py-16 md:py-20 bg-stone-50 border-t border-stone-200">
+      <section className="py-16 md:py-20 bg-stone-50 dark:bg-stone-950 border-t border-stone-200 dark:border-stone-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="flex flex-col items-center gap-3">
               <div className="text-2xl">📍</div>
-              <h3 className="text-stone-900 font-display font-semibold">Location</h3>
-              <p className="text-stone-500 text-sm">865 Bergen Ave #2<br />Jersey City, NJ 07306</p>
+              <h3 className="text-stone-900 dark:text-white font-display font-semibold">Location</h3>
+              <p className="text-stone-500 dark:text-stone-400 text-sm">865 Bergen Ave #2<br />Jersey City, NJ 07306</p>
             </div>
             <div className="flex flex-col items-center gap-3">
               <div className="text-2xl">📞</div>
-              <h3 className="text-stone-900 font-display font-semibold">Phone</h3>
-              <a href="tel:+12017363239" className="text-stone-900 hover:text-stone-600 text-sm font-semibold transition-colors">
+              <h3 className="text-stone-900 dark:text-white font-display font-semibold">Phone</h3>
+              <a href="tel:+12017363239" className="text-stone-900 dark:text-white hover:text-stone-600 dark:hover:text-stone-300 text-sm font-semibold transition-colors">
                 (201) 736-3239
               </a>
             </div>
             <div className="flex flex-col items-center gap-3">
               <div className="text-2xl">🕐</div>
-              <h3 className="text-stone-900 font-display font-semibold">Hours</h3>
-              <p className="text-stone-500 text-sm">Mon–Tue, Thu–Sat: 11AM–9PM<br />Sun: 11AM–3PM · Wed: Closed</p>
+              <h3 className="text-stone-900 dark:text-white font-display font-semibold">Hours</h3>
+              <p className="text-stone-500 dark:text-stone-400 text-sm">Mon–Tue, Thu–Sat: 11AM–9PM<br />Sun: 11AM–3PM · Wed: Closed</p>
             </div>
           </div>
         </div>

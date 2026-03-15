@@ -54,7 +54,7 @@ export default function LanguageSwitcher() {
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1 text-stone-400 hover:text-stone-900 text-xs font-medium tracking-[0.15em] uppercase transition-colors duration-200 px-2 py-1.5 border border-stone-300 hover:border-stone-500"
+        className="flex items-center gap-1 text-stone-400 hover:text-stone-900 dark:text-stone-500 dark:hover:text-white text-xs font-medium tracking-[0.15em] uppercase transition-colors duration-200 px-2 py-1.5 border border-stone-300 dark:border-stone-700 hover:border-stone-500 dark:hover:border-stone-500"
         aria-label="Select language"
       >
         {lang.toUpperCase()}
@@ -64,14 +64,14 @@ export default function LanguageSwitcher() {
       </button>
 
       {open && (
-        <div className="absolute right-0 top-full mt-2 bg-white border border-stone-200 shadow-lg overflow-hidden z-50 min-w-[130px]">
+        <div className="absolute right-0 top-full mt-2 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-700 shadow-lg overflow-hidden z-50 min-w-[130px]">
           {languages.map((l) => (
             <button
               key={l.code}
               onClick={() => selectLang(l.code)}
               className={`w-full text-left px-4 py-2.5 text-sm transition-colors duration-150 ${lang === l.code
-                  ? "bg-stone-100 text-stone-900 font-semibold"
-                  : "text-stone-500 hover:bg-stone-50 hover:text-stone-900"
+                  ? "bg-stone-100 dark:bg-stone-800 text-stone-900 dark:text-white font-semibold"
+                  : "text-stone-500 dark:text-stone-400 hover:bg-stone-50 dark:hover:bg-stone-800 hover:text-stone-900 dark:hover:text-white"
                 }`}
             >
               {l.label}

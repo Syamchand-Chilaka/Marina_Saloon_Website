@@ -84,25 +84,25 @@ export default function ReviewsPage() {
   const totalReviews = allReviews.length;
 
   return (
-    <div className="min-h-screen bg-stone-50 pt-20">
+    <div className="min-h-screen bg-stone-50 dark:bg-stone-950 pt-20">
       {/* Header */}
-      <div className="bg-stone-100 border-b border-stone-200 py-16 md:py-20">
+      <div className="bg-stone-100 dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800 py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-stone-400 text-xs font-medium tracking-[0.3em] uppercase mb-3">Customer Reviews</p>
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-stone-900 tracking-tight mb-4">
+          <p className="text-stone-400 dark:text-stone-500 text-xs font-medium tracking-[0.3em] uppercase mb-3">Customer Reviews</p>
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-stone-900 dark:text-white tracking-tight mb-4">
             What People Say
           </h1>
-          <div className="w-12 h-px bg-stone-300 mx-auto mb-8" />
+          <div className="w-12 h-px bg-stone-300 dark:bg-stone-700 mx-auto mb-8" />
 
           {/* Rating summary */}
-          <div className="inline-flex flex-col items-center gap-3 bg-white border border-stone-200 px-8 py-6">
-            <div className="font-display text-5xl font-bold text-stone-900">{averageRating.toFixed(1)}</div>
+          <div className="inline-flex flex-col items-center gap-3 bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 px-8 py-6">
+            <div className="font-display text-5xl font-bold text-stone-900 dark:text-white">{averageRating.toFixed(1)}</div>
             <div className="flex gap-1">
               {Array.from({ length: 5 }).map((_, i) => (
-                <span key={i} className="text-xl text-stone-800">★</span>
+                <span key={i} className="text-xl text-stone-800 dark:text-stone-200">★</span>
               ))}
             </div>
-            <p className="text-stone-400 text-sm">Based on {totalReviews}+ reviews</p>
+            <p className="text-stone-400 dark:text-stone-500 text-sm">Based on {totalReviews}+ reviews</p>
           </div>
         </div>
       </div>
@@ -116,7 +116,7 @@ export default function ReviewsPage() {
         </div>
 
         {/* Google Reviews CTA */}
-        <div className="mt-16 bg-stone-900 p-8 md:p-10 text-center">
+        <div className="mt-16 bg-stone-900 dark:bg-stone-800 p-8 md:p-10 text-center">
           <div className="flex justify-center gap-1 mb-4">
             {Array.from({ length: 5 }).map((_, i) => (
               <span key={i} className="text-xl text-white">★</span>

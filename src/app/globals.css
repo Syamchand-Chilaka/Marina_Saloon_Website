@@ -1,18 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-stone-50 text-stone-800;
+    @apply bg-stone-50 text-stone-800 dark:bg-stone-950 dark:text-stone-200;
     font-family: 'Inter', system-ui, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   ::selection {
-    @apply bg-stone-800 text-stone-50;
+    @apply bg-stone-800 text-stone-50 dark:bg-stone-200 dark:text-stone-900;
   }
 }
 
