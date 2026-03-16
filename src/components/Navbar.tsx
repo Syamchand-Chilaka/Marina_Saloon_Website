@@ -4,13 +4,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useTheme } from "./ThemeProvider";
+import { useLanguage } from "./LanguageProvider";
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/gallery", label: "Gallery" },
-  { href: "/reviews", label: "Reviews" },
-  { href: "/contact", label: "Contact" },
+const navKeys = [
+  { href: "/", key: "nav.home" },
+  { href: "/services", key: "nav.services" },
+  { href: "/gallery", key: "nav.gallery" },
+  { href: "/reviews", key: "nav.reviews" },
+  { href: "/contact", key: "nav.contact" },
 ];
 
 export default function Navbar() {
@@ -18,6 +19,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const { theme, toggle } = useTheme();
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -48,14 +50,14 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
+            {navKeys.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={`text-xs font-medium tracking-[0.15em] uppercase transition-colors duration-200 hover:text-stone-900 dark:hover:text-white ${pathname === link.href ? "text-stone-900 dark:text-white" : "text-stone-400 dark:text-stone-500"
                   }`}
               >
-                {link.label}
+                {t(link.key)}
               </Link>
             ))}
             <LanguageSwitcher />
@@ -75,7 +77,7 @@ export default function Navbar() {
               href="tel:+12017363239"
               className="bg-stone-900 hover:bg-stone-800 dark:bg-white dark:hover:bg-stone-200 text-stone-50 dark:text-stone-900 text-xs font-medium px-6 py-2.5 tracking-widest uppercase transition-all duration-200"
             >
-              Book Now
+              {t("nav.bookNow")}
             </a>
           </div>
 
@@ -113,21 +115,21 @@ export default function Navbar() {
           }`}
       >
         <div className="px-4 py-4 flex flex-col gap-1">
-          {navLinks.map((link) => (
+          {navKeys.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={`text-sm font-medium py-3 border-b border-stone-100 dark:border-stone-800 transition-colors tracking-wide ${pathname === link.href ? "text-stone-900 dark:text-white" : "text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white"
                 }`}
             >
-              {link.label}
+              {t(link.key)}
             </Link>
           ))}
           <a
             href="tel:+12017363239"
             className="mt-3 bg-stone-900 dark:bg-white hover:bg-stone-800 dark:hover:bg-stone-200 text-stone-50 dark:text-stone-900 font-medium text-center py-3.5 transition-colors tracking-widest uppercase text-xs"
           >
-            Book Now — Call Us
+            {t("nav.bookNowCall")}
           </a>
           <div className="mt-3 flex justify-center">
             <LanguageSwitcher />

@@ -1,6 +1,18 @@
+"use client";
 import Link from "next/link";
+import { useLanguage } from "./LanguageProvider";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
+  const quickLinks = [
+    { href: "/", key: "footer.home" },
+    { href: "/services", key: "footer.servicesPricing" },
+    { href: "/gallery", key: "footer.gallery" },
+    { href: "/reviews", key: "footer.reviews" },
+    { href: "/contact", key: "footer.contactUs" },
+  ];
+
   return (
     <footer className="bg-stone-900 dark:bg-stone-950 text-stone-300 dark:text-stone-400 border-t border-transparent dark:border-stone-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
@@ -16,7 +28,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-stone-400 text-sm leading-relaxed mb-6">
-              Premium barbershop services in Journal Square, Jersey City. Where style meets tradition.
+              {t("footer.tagline")}
             </p>
             <div className="flex gap-3">
               {["IG", "FB", "YT"].map((s) => (
@@ -33,21 +45,15 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-display font-semibold mb-5 tracking-wide text-sm">Quick Links</h3>
+            <h3 className="text-white font-display font-semibold mb-5 tracking-wide text-sm">{t("footer.quickLinks")}</h3>
             <ul className="space-y-3">
-              {[
-                { href: "/", label: "Home" },
-                { href: "/services", label: "Services & Pricing" },
-                { href: "/gallery", label: "Gallery" },
-                { href: "/reviews", label: "Reviews" },
-                { href: "/contact", label: "Contact Us" },
-              ].map((link) => (
+              {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
                     className="text-stone-400 hover:text-white text-sm transition-colors duration-200"
                   >
-                    {link.label}
+                    {t(link.key)}
                   </Link>
                 </li>
               ))}
@@ -56,7 +62,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-white font-display font-semibold mb-5 tracking-wide text-sm">Visit Us</h3>
+            <h3 className="text-white font-display font-semibold mb-5 tracking-wide text-sm">{t("footer.visitUs")}</h3>
             <div className="space-y-4 text-sm text-stone-400">
               <p className="flex gap-3">
                 <span>📍</span>
@@ -71,9 +77,9 @@ export default function Footer() {
               <div className="flex gap-3">
                 <span>🕐</span>
                 <div>
-                  <p>Mon–Tue, Thu–Sat: 11:00 AM – 9:00 PM</p>
-                  <p>Sun: 11:00 AM – 3:00 PM</p>
-                  <p>Wed: Closed</p>
+                  <p>{t("footer.hoursMTTS")}</p>
+                  <p>{t("footer.hoursSun")}</p>
+                  <p>{t("footer.hoursWedClosed")}</p>
                 </div>
               </div>
             </div>
@@ -82,7 +88,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-stone-800 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-stone-500 text-sm">
-            © {new Date().getFullYear()} Marina Barbershop. All rights reserved.
+            © {new Date().getFullYear()} Marina Barbershop. {t("footer.allRightsReserved")}
           </p>
           <p className="text-stone-600 text-xs">
             865 Bergen Ave #2, Jersey City, NJ 07306

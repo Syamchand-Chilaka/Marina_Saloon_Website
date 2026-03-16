@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ThemeProvider from "@/components/ThemeProvider";
+import LanguageProvider from "@/components/LanguageProvider";
 
 export const metadata: Metadata = {
   title: "Marina Barbershop | Premium Cuts in Jersey City, NJ",
@@ -82,9 +83,11 @@ export default function RootLayout({
       </head>
       <body className="bg-stone-50 text-stone-800 dark:bg-stone-950 dark:text-stone-200 antialiased">
         <ThemeProvider>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
+          <LanguageProvider>
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

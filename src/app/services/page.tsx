@@ -1,55 +1,53 @@
+"use client";
 import ServiceCard from "@/components/ServiceCard";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Services & Pricing | Marina Barbershop Jersey City",
-  description: "Explore Marina Barbershop's full menu of services including haircuts, fades, beard trims, and hot towel shaves. Affordable prices in Jersey City, NJ.",
-};
-
-const serviceCategories = [
-  {
-    category: "Haircuts",
-    icon: "✂️",
-    services: [
-      { name: "Classic Haircut", price: "$25", description: "A timeless cut shaped to your style and face structure." },
-      { name: "Fade", price: "$30", description: "Precision fade — high, mid, or low. Clean lines guaranteed.", popular: true },
-      { name: "Scissor Cut", price: "$30", description: "Detailed scissor work for textured, natural styles." },
-      { name: "Buzz Cut", price: "$20", description: "Simple, clean all-over buzz — quick and sharp." },
-      { name: "Kids Cut", price: "$20", description: "Patient, friendly cuts for kids 12 and under." },
-      { name: "Senior Cut", price: "$20", description: "Relaxed, comfortable cuts for seniors." },
-    ],
-  },
-  {
-    category: "Beard Services",
-    icon: "🪒",
-    services: [
-      { name: "Beard Trim", price: "$15", description: "Shaping and trimming to clean up your beard." },
-      { name: "Beard Shape-up", price: "$20", description: "Define your lines with a clean, sharp edge-up.", popular: true },
-      { name: "Hot Towel Shave", price: "$35", description: "Classic straight-razor shave with warm towel prep. A luxury experience.", popular: true },
-      { name: "Neck Shave", price: "$10", description: "Quick clean-up of the neckline." },
-    ],
-  },
-  {
-    category: "Combo Packages",
-    icon: "⭐",
-    services: [
-      { name: "Cut + Beard Combo", price: "$40", description: "Full haircut and beard trim in one visit. Best value.", popular: true },
-      { name: "Cut + Shave Combo", price: "$55", description: "Haircut paired with a full hot towel straight-razor shave." },
-      { name: "Full Service Package", price: "$65", description: "Everything included — cut, beard shape-up, hot towel, and neck shave." },
-    ],
-  },
-  {
-    category: "Extras & Add-ons",
-    icon: "✨",
-    services: [
-      { name: "Edge-up / Line-up", price: "$10", description: "Crisp edge-up of the hairline, sideburns, and neck." },
-      { name: "Hair Design", price: "$15+", description: "Custom designs and patterns cut into your style." },
-      { name: "Eyebrow Trim", price: "$5", description: "Clean up and shape your eyebrows." },
-    ],
-  },
-];
+import { useLanguage } from "@/components/LanguageProvider";
 
 export default function ServicesPage() {
+  const { t } = useLanguage();
+
+  const serviceCategories = [
+    {
+      category: t("svc.cat.haircuts"),
+      icon: "✂️",
+      services: [
+        { name: t("svc.classicHaircut"), price: "$25", description: t("svc.classicHaircut.desc") },
+        { name: t("svc.fade"), price: "$30", description: t("svc.fade.desc"), popular: true },
+        { name: t("svc.scissorCut"), price: "$30", description: t("svc.scissorCut.desc") },
+        { name: t("svc.buzzCut"), price: "$20", description: t("svc.buzzCut.desc") },
+        { name: t("svc.kidsCut"), price: "$20", description: t("svc.kidsCut.desc") },
+        { name: t("svc.seniorCut"), price: "$20", description: t("svc.seniorCut.desc") },
+      ],
+    },
+    {
+      category: t("svc.cat.beardServices"),
+      icon: "🪒",
+      services: [
+        { name: t("svc.beardTrim"), price: "$15", description: t("svc.beardTrim.desc") },
+        { name: t("svc.beardShapeup"), price: "$20", description: t("svc.beardShapeup.desc"), popular: true },
+        { name: t("svc.hotTowelShave"), price: "$35", description: t("svc.hotTowelShave.desc"), popular: true },
+        { name: t("svc.neckShave"), price: "$10", description: t("svc.neckShave.desc") },
+      ],
+    },
+    {
+      category: t("svc.cat.comboPackages"),
+      icon: "⭐",
+      services: [
+        { name: t("svc.cutBeardCombo"), price: "$40", description: t("svc.cutBeardCombo.desc"), popular: true },
+        { name: t("svc.cutShaveCombo"), price: "$55", description: t("svc.cutShaveCombo.desc") },
+        { name: t("svc.fullServicePackage"), price: "$65", description: t("svc.fullServicePackage.desc") },
+      ],
+    },
+    {
+      category: t("svc.cat.extrasAddons"),
+      icon: "✨",
+      services: [
+        { name: t("svc.edgeupLineup"), price: "$10", description: t("svc.edgeupLineup.desc") },
+        { name: t("svc.hairDesign"), price: "$15+", description: t("svc.hairDesign.desc") },
+        { name: t("svc.eyebrowTrim"), price: "$5", description: t("svc.eyebrowTrim.desc") },
+      ],
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-stone-50 dark:bg-stone-950 pt-20">
       {/* Header */}
@@ -57,11 +55,11 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-stone-400 dark:text-stone-500 text-xs font-medium tracking-[0.3em] uppercase mb-3">Marina Barbershop</p>
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-stone-900 dark:text-white tracking-tight mb-4">
-            Services & Pricing
+            {t("services.title")}
           </h1>
           <div className="w-12 h-px bg-stone-300 dark:bg-stone-700 mx-auto mb-6" />
           <p className="text-stone-500 dark:text-stone-400 text-lg max-w-2xl mx-auto">
-            Premium barbershop services at honest prices. Walk-ins welcome — no appointment needed.
+            {t("services.subtitle")}
           </p>
         </div>
       </div>
@@ -69,13 +67,13 @@ export default function ServicesPage() {
       {/* Services */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
         {serviceCategories.map((cat) => (
-          <div key={cat.category} className="mb-14 md:mb-16">
+          <div key={cat.icon} className="mb-14 md:mb-16">
             <div className="flex items-center gap-3 mb-6">
               <span className="text-2xl">{cat.icon}</span>
               <h2 className="font-display text-2xl md:text-3xl font-bold text-stone-900 dark:text-white tracking-tight">
                 {cat.category}
               </h2>
-              <div className="flex-1 h-px bg-stone-200 dark:bg-stone-700 ml-2" />
+              <div className="flex-1 h-px bg-stone-200 dark:bg-stone-700 ml-2 rtl:ml-0 rtl:mr-2" />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {cat.services.map((service) => (
@@ -87,13 +85,13 @@ export default function ServicesPage() {
 
         {/* CTA */}
         <div className="bg-stone-900 dark:bg-stone-800 p-8 text-center mt-8">
-          <h3 className="font-display text-2xl font-bold text-white mb-3">Ready for Your Cut?</h3>
-          <p className="text-stone-400 mb-6">Walk in anytime or give us a call to check wait times.</p>
+          <h3 className="font-display text-2xl font-bold text-white mb-3">{t("services.readyForCut")}</h3>
+          <p className="text-stone-400 mb-6">{t("services.walkInAnytime")}</p>
           <a
             href="tel:+12017363239"
             className="inline-block bg-white hover:bg-stone-100 text-stone-900 font-medium px-8 py-3 transition-all duration-200 tracking-widest uppercase text-xs"
           >
-            Call (201) 736-3239
+            {t("home.callNumber")}
           </a>
         </div>
       </div>

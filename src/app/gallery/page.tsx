@@ -1,41 +1,39 @@
+"use client";
 import Image from "next/image";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Gallery | Marina Barbershop Jersey City",
-  description: "See our work — fresh fades, classic cuts, beard trims, and more at Marina Barbershop in Jersey City, NJ.",
-};
+import { useLanguage } from "@/components/LanguageProvider";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
-const galleryItems = [
-  { id: 1, caption: "Curly Fade", category: "Haircut", src: `${basePath}/images/curly-fade-side.jpg`, width: 243, height: 244 },
-  { id: 2, caption: "Curly Fade — Back View", category: "Haircut", src: `${basePath}/images/curly-fade-back.jpg`, width: 243, height: 406 },
-  { id: 3, caption: "Kids Cut", category: "Haircut", src: `${basePath}/images/kids-cut-blonde.jpg`, width: 243, height: 244 },
-  { id: 4, caption: "Curly Cut", category: "Haircut", src: `${basePath}/images/curly-cut-side.jpg`, width: 243, height: 406 },
-  { id: 5, caption: "Beard Trim & Fade", category: "Beard", src: `${basePath}/images/curly-beard-trim.jpg`, width: 243, height: 304 },
-  { id: 6, caption: "Kids Haircut", category: "Haircut", src: `${basePath}/images/kids-cut-smile.jpg`, width: 243, height: 244 },
-  { id: 7, caption: "Happy Client", category: "Haircut", src: `${basePath}/images/mirror-selfie.jpg`, width: 243, height: 406 },
-  { id: 8, caption: "Barber at Work", category: "Shop", src: `${basePath}/images/barber-at-work.jpg`, width: 243, height: 244 },
-  { id: 9, caption: "Kids Cut — Design", category: "Haircut", src: `${basePath}/images/kids-cut-peace.jpg`, width: 243, height: 244 },
-  { id: 10, caption: "Our Barber", category: "Team", src: `${basePath}/images/barber-client-selfie.jpg`, width: 243, height: 244 },
-  { id: 11, caption: "Kids Fade", category: "Haircut", src: `${basePath}/images/kids-cut-flag.jpg`, width: 243, height: 244 },
-  { id: 12, caption: "The Owner", category: "Team", src: `${basePath}/images/owner-portrait.jpg`, width: 243, height: 406 },
-];
-
 export default function GalleryPage() {
+  const { t } = useLanguage();
+
+  const galleryItems = [
+    { id: 1, caption: t("gallery.curlyFade"), category: t("gallery.cat.haircut"), src: `${basePath}/images/curly-fade-side.jpg`, width: 243, height: 244 },
+    { id: 2, caption: t("gallery.curlyFadeBack"), category: t("gallery.cat.haircut"), src: `${basePath}/images/curly-fade-back.jpg`, width: 243, height: 406 },
+    { id: 3, caption: t("gallery.kidsCut"), category: t("gallery.cat.haircut"), src: `${basePath}/images/kids-cut-blonde.jpg`, width: 243, height: 244 },
+    { id: 4, caption: t("gallery.curlyCut"), category: t("gallery.cat.haircut"), src: `${basePath}/images/curly-cut-side.jpg`, width: 243, height: 406 },
+    { id: 5, caption: t("gallery.beardTrimFade"), category: t("gallery.cat.beard"), src: `${basePath}/images/curly-beard-trim.jpg`, width: 243, height: 304 },
+    { id: 6, caption: t("gallery.kidsHaircut"), category: t("gallery.cat.haircut"), src: `${basePath}/images/kids-cut-smile.jpg`, width: 243, height: 244 },
+    { id: 7, caption: t("gallery.happyClient"), category: t("gallery.cat.haircut"), src: `${basePath}/images/mirror-selfie.jpg`, width: 243, height: 406 },
+    { id: 8, caption: t("gallery.barberAtWork"), category: t("gallery.cat.shop"), src: `${basePath}/images/barber-at-work.jpg`, width: 243, height: 244 },
+    { id: 9, caption: t("gallery.kidsCutDesign"), category: t("gallery.cat.haircut"), src: `${basePath}/images/kids-cut-peace.jpg`, width: 243, height: 244 },
+    { id: 10, caption: t("gallery.ourBarber"), category: t("gallery.cat.team"), src: `${basePath}/images/barber-client-selfie.jpg`, width: 243, height: 244 },
+    { id: 11, caption: t("gallery.kidsFade"), category: t("gallery.cat.haircut"), src: `${basePath}/images/kids-cut-flag.jpg`, width: 243, height: 244 },
+    { id: 12, caption: t("gallery.theOwner"), category: t("gallery.cat.team"), src: `${basePath}/images/owner-portrait.jpg`, width: 243, height: 406 },
+  ];
+
   return (
     <div className="min-h-screen bg-stone-50 dark:bg-stone-950 pt-20">
       {/* Header */}
       <div className="bg-stone-100 dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800 py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-stone-400 dark:text-stone-500 text-xs font-medium tracking-[0.3em] uppercase mb-3">Our Work</p>
+          <p className="text-stone-400 dark:text-stone-500 text-xs font-medium tracking-[0.3em] uppercase mb-3">{t("home.ourWork")}</p>
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-stone-900 dark:text-white tracking-tight mb-4">
-            Gallery
+            {t("gallery.title")}
           </h1>
           <div className="w-12 h-px bg-stone-300 dark:bg-stone-700 mx-auto mb-6" />
           <p className="text-stone-500 dark:text-stone-400 text-lg max-w-2xl mx-auto">
-            Every cut tells a story. Browse some of our recent work from Marina Barbershop.
+            {t("gallery.subtitle")}
           </p>
         </div>
       </div>
@@ -63,12 +61,12 @@ export default function GalleryPage() {
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <p className="text-stone-500 dark:text-stone-400 text-lg mb-6">Like what you see? Come in for your own transformation.</p>
+          <p className="text-stone-500 dark:text-stone-400 text-lg mb-6">{t("gallery.likeWhatYouSee")}</p>
           <a
             href="tel:+12017363239"
             className="inline-block bg-stone-900 dark:bg-white hover:bg-stone-800 dark:hover:bg-stone-200 text-stone-50 dark:text-stone-900 font-medium px-10 py-4 transition-all duration-200 tracking-widest uppercase text-xs"
           >
-            Book Your Cut — (201) 736-3239
+            {t("gallery.bookYourCut")}
           </a>
         </div>
       </div>

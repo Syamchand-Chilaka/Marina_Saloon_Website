@@ -1,85 +1,23 @@
+"use client";
 import TestimonialCard from "@/components/TestimonialCard";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Reviews | Marina Barbershop Jersey City",
-  description: "Read what customers are saying about Marina Barbershop in Jersey City, NJ. 5-star reviews for cuts, fades, and beard services.",
-};
-
-const allReviews = [
-  {
-    name: "Carlos M.",
-    rating: 5,
-    review: "Best barbershop in Jersey City, hands down. The fade is always on point and the atmosphere is chill. Won't go anywhere else.",
-    date: "January 2025",
-    service: "Fade",
-  },
-  {
-    name: "James T.",
-    rating: 5,
-    review: "Came in as a walk-in and was taken care of almost immediately. Professional, clean shop, and the barber really listened to what I wanted.",
-    date: "December 2024",
-    service: "Classic Cut",
-  },
-  {
-    name: "Ricardo P.",
-    rating: 5,
-    review: "The hot towel shave is an absolute experience. Feels like a luxury treatment but at a real barbershop price. This is my spot now.",
-    date: "January 2025",
-    service: "Hot Towel Shave",
-  },
-  {
-    name: "Miguel A.",
-    rating: 5,
-    review: "Brought my son in for his first real haircut and they were incredibly patient and kind. He loved it. We're regulars now.",
-    date: "November 2024",
-    service: "Kids Cut",
-  },
-  {
-    name: "David R.",
-    rating: 5,
-    review: "Been going here for 2 years. Consistent quality every single time. The combo deal is a steal — haircut and beard for $40.",
-    date: "January 2025",
-    service: "Cut + Beard Combo",
-  },
-  {
-    name: "Kevin L.",
-    rating: 5,
-    review: "Clean shop, friendly staff, and they actually know how to do a proper fade. No fuss, just great work every time I come in.",
-    date: "December 2024",
-    service: "Fade",
-  },
-  {
-    name: "Anthony S.",
-    rating: 5,
-    review: "Best haircut I've had in years. The barber was super attentive and gave great advice on styling. The beard shape-up was fire.",
-    date: "October 2024",
-    service: "Cut + Beard Combo",
-  },
-  {
-    name: "Omar J.",
-    rating: 5,
-    review: "Always leave feeling fresh. The environment is welcoming and professional. Easy to find in Journal Square area. Highly recommend.",
-    date: "December 2024",
-    service: "Classic Cut",
-  },
-  {
-    name: "Luis F.",
-    rating: 5,
-    review: "I'm picky about my fades and Marina's team delivers every time. They pay attention to detail and never rush you out.",
-    date: "November 2024",
-    service: "Fade",
-  },
-  {
-    name: "Tony W.",
-    rating: 5,
-    review: "The full service package is worth every penny. Clean cut, hot towel, the works. Walked out looking like a new man.",
-    date: "January 2025",
-    service: "Full Service Package",
-  },
-];
+import { useLanguage } from "@/components/LanguageProvider";
 
 export default function ReviewsPage() {
+  const { t } = useLanguage();
+
+  const allReviews = [
+    { name: "Carlos M.", rating: 5, review: t("review.1"), date: t("date.january2025"), service: t("svc.fade") },
+    { name: "James T.", rating: 5, review: t("review.2"), date: t("date.december2024"), service: t("svc.classicHaircut") },
+    { name: "Ricardo P.", rating: 5, review: t("review.3"), date: t("date.january2025"), service: t("svc.hotTowelShave") },
+    { name: "Miguel A.", rating: 5, review: t("review.4"), date: t("date.november2024"), service: t("svc.kidsCut") },
+    { name: "David R.", rating: 5, review: t("review.5"), date: t("date.january2025"), service: t("svc.cutBeardCombo") },
+    { name: "Kevin L.", rating: 5, review: t("review.6"), date: t("date.december2024"), service: t("svc.fade") },
+    { name: "Anthony S.", rating: 5, review: t("review.7"), date: t("date.october2024"), service: t("svc.cutBeardCombo") },
+    { name: "Omar J.", rating: 5, review: t("review.8"), date: t("date.december2024"), service: t("svc.classicHaircut") },
+    { name: "Luis F.", rating: 5, review: t("review.9"), date: t("date.november2024"), service: t("svc.fade") },
+    { name: "Tony W.", rating: 5, review: t("review.10"), date: t("date.january2025"), service: t("svc.fullServicePackage") },
+  ];
+
   const averageRating = 5.0;
   const totalReviews = 291;
 
@@ -88,9 +26,9 @@ export default function ReviewsPage() {
       {/* Header */}
       <div className="bg-stone-100 dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800 py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-stone-400 dark:text-stone-500 text-xs font-medium tracking-[0.3em] uppercase mb-3">Customer Reviews</p>
+          <p className="text-stone-400 dark:text-stone-500 text-xs font-medium tracking-[0.3em] uppercase mb-3">{t("reviews.customerReviews")}</p>
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-stone-900 dark:text-white tracking-tight mb-4">
-            What People Say
+            {t("reviews.whatPeopleSay")}
           </h1>
           <div className="w-12 h-px bg-stone-300 dark:bg-stone-700 mx-auto mb-8" />
 
@@ -102,7 +40,7 @@ export default function ReviewsPage() {
                 <span key={i} className="text-xl text-stone-800 dark:text-stone-200">★</span>
               ))}
             </div>
-            <p className="text-stone-400 dark:text-stone-500 text-sm">Based on {totalReviews} reviews</p>
+            <p className="text-stone-400 dark:text-stone-500 text-sm">{t("reviews.basedOn")}</p>
           </div>
         </div>
       </div>
@@ -122,9 +60,9 @@ export default function ReviewsPage() {
               <span key={i} className="text-xl text-white">★</span>
             ))}
           </div>
-          <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-3">Love Marina Barbershop?</h3>
+          <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-3">{t("reviews.loveMarina")}</h3>
           <p className="text-stone-400 mb-6 max-w-md mx-auto">
-            Leave us a review on Google and help others discover the best barbershop in Jersey City.
+            {t("reviews.leaveReview")}
           </p>
           <a
             href="https://www.google.com/maps/place/Marina+Barbershop/@40.7329,-74.0625,17z/"
@@ -132,7 +70,7 @@ export default function ReviewsPage() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-white hover:bg-stone-100 text-stone-900 font-medium px-8 py-3 transition-all duration-200 tracking-widest uppercase text-xs"
           >
-            Leave a Google Review →
+            {t("reviews.leaveGoogleReview")}
           </a>
         </div>
       </div>
