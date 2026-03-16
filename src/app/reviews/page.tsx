@@ -65,7 +65,7 @@ export default function ReviewsPage() {
             {t("reviews.leaveReview")}
           </p>
           <a
-            href="https://www.google.com/maps/place/Marina+Barbershop/@40.7329,-74.0625,17z/"
+            href="https://search.google.com/local/writereview?placeid=ChIJbTsc4eNXwokRWg6NarH2QHs"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-white hover:bg-stone-100 text-stone-900 font-medium px-8 py-3 transition-all duration-200 tracking-widest uppercase text-xs"
